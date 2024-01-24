@@ -1,4 +1,10 @@
 {
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "ES6",
+    "moduleResolution": "node"
+  },
+  "type": "module",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -7,11 +13,12 @@
   },
   "dependencies": {
     "@prisma/client": "^5.8.1",
+    "bcryptjs": "^2.4.3",
     "date-fns": "^2.29.3",
     "dotenv": "^16.4.0",
     "gray-matter": "^4.0.3",
     "next": "latest",
-    "next-connect": "^1.0.0-next.4",
+    "next-connect": "^0.11.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "remark": "^14.0.2",
@@ -21,6 +28,9 @@
     "node": ">=18"
   },
   "devDependencies": {
-    "prisma": "^5.8.1"
+    "@types/node": "20.11.6",
+    "@types/react": "18.2.48",
+    "prisma": "^5.8.1",
+    "typescript": "5.3.3"
   }
 }
