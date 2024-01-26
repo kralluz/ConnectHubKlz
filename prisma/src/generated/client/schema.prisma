@@ -15,15 +15,17 @@ model Client {
   password   String
   phone      String
   created_at DateTime  @default(now())
+  updated_at DateTime?
   contatos   Contact[]
 }
 
 model Contact {
   id            Int      @id @default(autoincrement())
   client_id     Int
-  nome_completo String
+  name          String
   email         String?
-  telefone      String
+  phone      String
   created_at DateTime @default(now())
+  updated_at DateTime?
   client        Client?   @relation(fields: [client_id], references: [id])
 }

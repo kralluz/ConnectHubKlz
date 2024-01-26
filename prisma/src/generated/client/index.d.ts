@@ -998,6 +998,7 @@ export namespace Prisma {
     password: string | null
     phone: string | null
     created_at: Date | null
+    updated_at: Date | null
   }
 
   export type ClientMaxAggregateOutputType = {
@@ -1007,6 +1008,7 @@ export namespace Prisma {
     password: string | null
     phone: string | null
     created_at: Date | null
+    updated_at: Date | null
   }
 
   export type ClientCountAggregateOutputType = {
@@ -1016,6 +1018,7 @@ export namespace Prisma {
     password: number
     phone: number
     created_at: number
+    updated_at: number
     _all: number
   }
 
@@ -1035,6 +1038,7 @@ export namespace Prisma {
     password?: true
     phone?: true
     created_at?: true
+    updated_at?: true
   }
 
   export type ClientMaxAggregateInputType = {
@@ -1044,6 +1048,7 @@ export namespace Prisma {
     password?: true
     phone?: true
     created_at?: true
+    updated_at?: true
   }
 
   export type ClientCountAggregateInputType = {
@@ -1053,6 +1058,7 @@ export namespace Prisma {
     password?: true
     phone?: true
     created_at?: true
+    updated_at?: true
     _all?: true
   }
 
@@ -1149,6 +1155,7 @@ export namespace Prisma {
     password: string
     phone: string
     created_at: Date
+    updated_at: Date | null
     _count: ClientCountAggregateOutputType | null
     _avg: ClientAvgAggregateOutputType | null
     _sum: ClientSumAggregateOutputType | null
@@ -1177,6 +1184,7 @@ export namespace Prisma {
     password?: boolean
     phone?: boolean
     created_at?: boolean
+    updated_at?: boolean
     contatos?: boolean | Client$contatosArgs<ExtArgs>
     _count?: boolean | ClientCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["client"]>
@@ -1188,6 +1196,7 @@ export namespace Prisma {
     password?: boolean
     phone?: boolean
     created_at?: boolean
+    updated_at?: boolean
   }
 
   export type ClientInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1208,6 +1217,7 @@ export namespace Prisma {
       password: string
       phone: string
       created_at: Date
+      updated_at: Date | null
     }, ExtArgs["result"]["client"]>
     composites: {}
   }
@@ -1609,6 +1619,7 @@ export namespace Prisma {
     readonly password: FieldRef<"Client", 'String'>
     readonly phone: FieldRef<"Client", 'String'>
     readonly created_at: FieldRef<"Client", 'DateTime'>
+    readonly updated_at: FieldRef<"Client", 'DateTime'>
   }
     
 
@@ -1982,28 +1993,31 @@ export namespace Prisma {
   export type ContactMinAggregateOutputType = {
     id: number | null
     client_id: number | null
-    nome_completo: string | null
+    name: string | null
     email: string | null
-    telefone: string | null
+    phone: string | null
     created_at: Date | null
+    updated_at: Date | null
   }
 
   export type ContactMaxAggregateOutputType = {
     id: number | null
     client_id: number | null
-    nome_completo: string | null
+    name: string | null
     email: string | null
-    telefone: string | null
+    phone: string | null
     created_at: Date | null
+    updated_at: Date | null
   }
 
   export type ContactCountAggregateOutputType = {
     id: number
     client_id: number
-    nome_completo: number
+    name: number
     email: number
-    telefone: number
+    phone: number
     created_at: number
+    updated_at: number
     _all: number
   }
 
@@ -2021,28 +2035,31 @@ export namespace Prisma {
   export type ContactMinAggregateInputType = {
     id?: true
     client_id?: true
-    nome_completo?: true
+    name?: true
     email?: true
-    telefone?: true
+    phone?: true
     created_at?: true
+    updated_at?: true
   }
 
   export type ContactMaxAggregateInputType = {
     id?: true
     client_id?: true
-    nome_completo?: true
+    name?: true
     email?: true
-    telefone?: true
+    phone?: true
     created_at?: true
+    updated_at?: true
   }
 
   export type ContactCountAggregateInputType = {
     id?: true
     client_id?: true
-    nome_completo?: true
+    name?: true
     email?: true
-    telefone?: true
+    phone?: true
     created_at?: true
+    updated_at?: true
     _all?: true
   }
 
@@ -2135,10 +2152,11 @@ export namespace Prisma {
   export type ContactGroupByOutputType = {
     id: number
     client_id: number
-    nome_completo: string
+    name: string
     email: string | null
-    telefone: string
+    phone: string
     created_at: Date
+    updated_at: Date | null
     _count: ContactCountAggregateOutputType | null
     _avg: ContactAvgAggregateOutputType | null
     _sum: ContactSumAggregateOutputType | null
@@ -2163,20 +2181,22 @@ export namespace Prisma {
   export type ContactSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     client_id?: boolean
-    nome_completo?: boolean
+    name?: boolean
     email?: boolean
-    telefone?: boolean
+    phone?: boolean
     created_at?: boolean
+    updated_at?: boolean
     client?: boolean | Contact$clientArgs<ExtArgs>
   }, ExtArgs["result"]["contact"]>
 
   export type ContactSelectScalar = {
     id?: boolean
     client_id?: boolean
-    nome_completo?: boolean
+    name?: boolean
     email?: boolean
-    telefone?: boolean
+    phone?: boolean
     created_at?: boolean
+    updated_at?: boolean
   }
 
   export type ContactInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2192,10 +2212,11 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       client_id: number
-      nome_completo: string
+      name: string
       email: string | null
-      telefone: string
+      phone: string
       created_at: Date
+      updated_at: Date | null
     }, ExtArgs["result"]["contact"]>
     composites: {}
   }
@@ -2593,10 +2614,11 @@ export namespace Prisma {
   interface ContactFieldRefs {
     readonly id: FieldRef<"Contact", 'Int'>
     readonly client_id: FieldRef<"Contact", 'Int'>
-    readonly nome_completo: FieldRef<"Contact", 'String'>
+    readonly name: FieldRef<"Contact", 'String'>
     readonly email: FieldRef<"Contact", 'String'>
-    readonly telefone: FieldRef<"Contact", 'String'>
+    readonly phone: FieldRef<"Contact", 'String'>
     readonly created_at: FieldRef<"Contact", 'DateTime'>
+    readonly updated_at: FieldRef<"Contact", 'DateTime'>
   }
     
 
@@ -2960,7 +2982,8 @@ export namespace Prisma {
     email: 'email',
     password: 'password',
     phone: 'phone',
-    created_at: 'created_at'
+    created_at: 'created_at',
+    updated_at: 'updated_at'
   };
 
   export type ClientScalarFieldEnum = (typeof ClientScalarFieldEnum)[keyof typeof ClientScalarFieldEnum]
@@ -2969,10 +2992,11 @@ export namespace Prisma {
   export const ContactScalarFieldEnum: {
     id: 'id',
     client_id: 'client_id',
-    nome_completo: 'nome_completo',
+    name: 'name',
     email: 'email',
-    telefone: 'telefone',
-    created_at: 'created_at'
+    phone: 'phone',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
   };
 
   export type ContactScalarFieldEnum = (typeof ContactScalarFieldEnum)[keyof typeof ContactScalarFieldEnum]
@@ -3076,6 +3100,7 @@ export namespace Prisma {
     password?: StringFilter<"Client"> | string
     phone?: StringFilter<"Client"> | string
     created_at?: DateTimeFilter<"Client"> | Date | string
+    updated_at?: DateTimeNullableFilter<"Client"> | Date | string | null
     contatos?: ContactListRelationFilter
   }
 
@@ -3086,6 +3111,7 @@ export namespace Prisma {
     password?: SortOrder
     phone?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrderInput | SortOrder
     contatos?: ContactOrderByRelationAggregateInput
   }
 
@@ -3099,6 +3125,7 @@ export namespace Prisma {
     password?: StringFilter<"Client"> | string
     phone?: StringFilter<"Client"> | string
     created_at?: DateTimeFilter<"Client"> | Date | string
+    updated_at?: DateTimeNullableFilter<"Client"> | Date | string | null
     contatos?: ContactListRelationFilter
   }, "id" | "email">
 
@@ -3109,6 +3136,7 @@ export namespace Prisma {
     password?: SortOrder
     phone?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrderInput | SortOrder
     _count?: ClientCountOrderByAggregateInput
     _avg?: ClientAvgOrderByAggregateInput
     _max?: ClientMaxOrderByAggregateInput
@@ -3126,6 +3154,7 @@ export namespace Prisma {
     password?: StringWithAggregatesFilter<"Client"> | string
     phone?: StringWithAggregatesFilter<"Client"> | string
     created_at?: DateTimeWithAggregatesFilter<"Client"> | Date | string
+    updated_at?: DateTimeNullableWithAggregatesFilter<"Client"> | Date | string | null
   }
 
   export type ContactWhereInput = {
@@ -3134,20 +3163,22 @@ export namespace Prisma {
     NOT?: ContactWhereInput | ContactWhereInput[]
     id?: IntFilter<"Contact"> | number
     client_id?: IntFilter<"Contact"> | number
-    nome_completo?: StringFilter<"Contact"> | string
+    name?: StringFilter<"Contact"> | string
     email?: StringNullableFilter<"Contact"> | string | null
-    telefone?: StringFilter<"Contact"> | string
+    phone?: StringFilter<"Contact"> | string
     created_at?: DateTimeFilter<"Contact"> | Date | string
+    updated_at?: DateTimeNullableFilter<"Contact"> | Date | string | null
     client?: XOR<ClientNullableRelationFilter, ClientWhereInput> | null
   }
 
   export type ContactOrderByWithRelationInput = {
     id?: SortOrder
     client_id?: SortOrder
-    nome_completo?: SortOrder
+    name?: SortOrder
     email?: SortOrderInput | SortOrder
-    telefone?: SortOrder
+    phone?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrderInput | SortOrder
     client?: ClientOrderByWithRelationInput
   }
 
@@ -3157,20 +3188,22 @@ export namespace Prisma {
     OR?: ContactWhereInput[]
     NOT?: ContactWhereInput | ContactWhereInput[]
     client_id?: IntFilter<"Contact"> | number
-    nome_completo?: StringFilter<"Contact"> | string
+    name?: StringFilter<"Contact"> | string
     email?: StringNullableFilter<"Contact"> | string | null
-    telefone?: StringFilter<"Contact"> | string
+    phone?: StringFilter<"Contact"> | string
     created_at?: DateTimeFilter<"Contact"> | Date | string
+    updated_at?: DateTimeNullableFilter<"Contact"> | Date | string | null
     client?: XOR<ClientNullableRelationFilter, ClientWhereInput> | null
   }, "id">
 
   export type ContactOrderByWithAggregationInput = {
     id?: SortOrder
     client_id?: SortOrder
-    nome_completo?: SortOrder
+    name?: SortOrder
     email?: SortOrderInput | SortOrder
-    telefone?: SortOrder
+    phone?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrderInput | SortOrder
     _count?: ContactCountOrderByAggregateInput
     _avg?: ContactAvgOrderByAggregateInput
     _max?: ContactMaxOrderByAggregateInput
@@ -3184,10 +3217,11 @@ export namespace Prisma {
     NOT?: ContactScalarWhereWithAggregatesInput | ContactScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Contact"> | number
     client_id?: IntWithAggregatesFilter<"Contact"> | number
-    nome_completo?: StringWithAggregatesFilter<"Contact"> | string
+    name?: StringWithAggregatesFilter<"Contact"> | string
     email?: StringNullableWithAggregatesFilter<"Contact"> | string | null
-    telefone?: StringWithAggregatesFilter<"Contact"> | string
+    phone?: StringWithAggregatesFilter<"Contact"> | string
     created_at?: DateTimeWithAggregatesFilter<"Contact"> | Date | string
+    updated_at?: DateTimeNullableWithAggregatesFilter<"Contact"> | Date | string | null
   }
 
   export type ClientCreateInput = {
@@ -3196,6 +3230,7 @@ export namespace Prisma {
     password: string
     phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
     contatos?: ContactCreateNestedManyWithoutClientInput
   }
 
@@ -3206,6 +3241,7 @@ export namespace Prisma {
     password: string
     phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
     contatos?: ContactUncheckedCreateNestedManyWithoutClientInput
   }
 
@@ -3215,6 +3251,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contatos?: ContactUpdateManyWithoutClientNestedInput
   }
 
@@ -3225,6 +3262,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contatos?: ContactUncheckedUpdateManyWithoutClientNestedInput
   }
 
@@ -3235,6 +3273,7 @@ export namespace Prisma {
     password: string
     phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
   }
 
   export type ClientUpdateManyMutationInput = {
@@ -3243,6 +3282,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ClientUncheckedUpdateManyInput = {
@@ -3252,65 +3292,73 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ContactCreateInput = {
-    nome_completo: string
+    name: string
     email?: string | null
-    telefone: string
+    phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
     client?: ClientCreateNestedOneWithoutContatosInput
   }
 
   export type ContactUncheckedCreateInput = {
     id?: number
     client_id: number
-    nome_completo: string
+    name: string
     email?: string | null
-    telefone: string
+    phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
   }
 
   export type ContactUpdateInput = {
-    nome_completo?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefone?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     client?: ClientUpdateOneWithoutContatosNestedInput
   }
 
   export type ContactUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     client_id?: IntFieldUpdateOperationsInput | number
-    nome_completo?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefone?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ContactCreateManyInput = {
     id?: number
     client_id: number
-    nome_completo: string
+    name: string
     email?: string | null
-    telefone: string
+    phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
   }
 
   export type ContactUpdateManyMutationInput = {
-    nome_completo?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefone?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ContactUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     client_id?: IntFieldUpdateOperationsInput | number
-    nome_completo?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefone?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -3350,10 +3398,26 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type ContactListRelationFilter = {
     every?: ContactWhereInput
     some?: ContactWhereInput
     none?: ContactWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type ContactOrderByRelationAggregateInput = {
@@ -3367,6 +3431,7 @@ export namespace Prisma {
     password?: SortOrder
     phone?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
   }
 
   export type ClientAvgOrderByAggregateInput = {
@@ -3380,6 +3445,7 @@ export namespace Prisma {
     password?: SortOrder
     phone?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
   }
 
   export type ClientMinOrderByAggregateInput = {
@@ -3389,6 +3455,7 @@ export namespace Prisma {
     password?: SortOrder
     phone?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
   }
 
   export type ClientSumOrderByAggregateInput = {
@@ -3443,6 +3510,20 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -3463,18 +3544,14 @@ export namespace Prisma {
     isNot?: ClientWhereInput | null
   }
 
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
   export type ContactCountOrderByAggregateInput = {
     id?: SortOrder
     client_id?: SortOrder
-    nome_completo?: SortOrder
+    name?: SortOrder
     email?: SortOrder
-    telefone?: SortOrder
+    phone?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
   }
 
   export type ContactAvgOrderByAggregateInput = {
@@ -3485,19 +3562,21 @@ export namespace Prisma {
   export type ContactMaxOrderByAggregateInput = {
     id?: SortOrder
     client_id?: SortOrder
-    nome_completo?: SortOrder
+    name?: SortOrder
     email?: SortOrder
-    telefone?: SortOrder
+    phone?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
   }
 
   export type ContactMinOrderByAggregateInput = {
     id?: SortOrder
     client_id?: SortOrder
-    nome_completo?: SortOrder
+    name?: SortOrder
     email?: SortOrder
-    telefone?: SortOrder
+    phone?: SortOrder
     created_at?: SortOrder
+    updated_at?: SortOrder
   }
 
   export type ContactSumOrderByAggregateInput = {
@@ -3543,6 +3622,10 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type ContactUpdateManyWithoutClientNestedInput = {
@@ -3637,6 +3720,17 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -3695,6 +3789,31 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -3726,30 +3845,21 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type ContactCreateWithoutClientInput = {
-    nome_completo: string
+    name: string
     email?: string | null
-    telefone: string
+    phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
   }
 
   export type ContactUncheckedCreateWithoutClientInput = {
     id?: number
-    nome_completo: string
+    name: string
     email?: string | null
-    telefone: string
+    phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
   }
 
   export type ContactCreateOrConnectWithoutClientInput = {
@@ -3784,10 +3894,11 @@ export namespace Prisma {
     NOT?: ContactScalarWhereInput | ContactScalarWhereInput[]
     id?: IntFilter<"Contact"> | number
     client_id?: IntFilter<"Contact"> | number
-    nome_completo?: StringFilter<"Contact"> | string
+    name?: StringFilter<"Contact"> | string
     email?: StringNullableFilter<"Contact"> | string | null
-    telefone?: StringFilter<"Contact"> | string
+    phone?: StringFilter<"Contact"> | string
     created_at?: DateTimeFilter<"Contact"> | Date | string
+    updated_at?: DateTimeNullableFilter<"Contact"> | Date | string | null
   }
 
   export type ClientCreateWithoutContatosInput = {
@@ -3796,6 +3907,7 @@ export namespace Prisma {
     password: string
     phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
   }
 
   export type ClientUncheckedCreateWithoutContatosInput = {
@@ -3805,6 +3917,7 @@ export namespace Prisma {
     password: string
     phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
   }
 
   export type ClientCreateOrConnectWithoutContatosInput = {
@@ -3829,6 +3942,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ClientUncheckedUpdateWithoutContatosInput = {
@@ -3838,37 +3952,42 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ContactCreateManyClientInput = {
     id?: number
-    nome_completo: string
+    name: string
     email?: string | null
-    telefone: string
+    phone: string
     created_at?: Date | string
+    updated_at?: Date | string | null
   }
 
   export type ContactUpdateWithoutClientInput = {
-    nome_completo?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefone?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ContactUncheckedUpdateWithoutClientInput = {
     id?: IntFieldUpdateOperationsInput | number
-    nome_completo?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefone?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ContactUncheckedUpdateManyWithoutClientInput = {
     id?: IntFieldUpdateOperationsInput | number
-    nome_completo?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    telefone?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
 

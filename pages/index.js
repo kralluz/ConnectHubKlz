@@ -15,15 +15,7 @@ export default function Home() {
     return (
         <>
             <h1>Home</h1>
-            <ul>
-                {apiData.map((client) => (
-                    <li key={client.id}>
-                        <p>Name: {client.name}</p>
-                        <p>Email: {client.email}</p>
-                        {/* Add more details as needed */}
-                    </li>
-                ))}
-            </ul>
+
         </>
     );
 }

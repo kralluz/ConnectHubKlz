@@ -113,16 +113,18 @@ exports.Prisma.ClientScalarFieldEnum = {
   email: 'email',
   password: 'password',
   phone: 'phone',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 };
 
 exports.Prisma.ContactScalarFieldEnum = {
   id: 'id',
   client_id: 'client_id',
-  nome_completo: 'nome_completo',
+  name: 'name',
   email: 'email',
-  telefone: 'telefone',
-  created_at: 'created_at'
+  phone: 'phone',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 };
 
 exports.Prisma.SortOrder = {
