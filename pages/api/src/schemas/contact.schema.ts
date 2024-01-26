@@ -6,7 +6,7 @@ export const contactSchema = z.object({
     client_id: z.number().int().positive(),
     name: z.string().max(45),
     email: z.string().max(45).email(),
-    phone: z.number().int().positive(),
+    phone: z.string(),
     created_at: z.string(),
     updated_at: z.string(),
 });
@@ -15,6 +15,7 @@ export const contactSchema = z.object({
 export const contactCreateSchema = contactSchema.pick({
     name: true,
     email: true,
+    phone: true,
 });
 
 

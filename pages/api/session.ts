@@ -1,13 +1,21 @@
-import sessionService from "./src/services/session.service.js";
-import { NextApiRequest, NextApiResponse } from "next";
+import { Request, Response, NextFunction } from "express";
 import { createRouter } from "next-connect";
+import { SessionController } from "./src/controllers/session.controller";
 
 const router = createRouter();
 
-router.post(async (req: NextApiRequest, res: NextApiResponse) => {
-    const body = req.body;
-    const response = await sessionService(body);
-    res.status(200).json(response);
-});
+export const teste = async (
+    req: Request,
+    res: Response, 
+    next: NextFunction
+): Promise<Response | void> => {
+    if (1 > 2) {
+        return res.status(202).json("response");
+    }
+
+    return next();
+};
+
+router.post( teste, SessionController);
 
 export default router.handler();

@@ -2,12 +2,10 @@ import "dotenv/config";
 import AppError from "../middlewares/errors";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
-import { LoginReturn, UserLogin } from "../interfaces/Clients.interface";
+import { SessionReturn, ClientSession } from "../interfaces/Clients.interface";
 import { PrismaClient } from "../../../../prisma/src/generated/client";
 const prisma = new PrismaClient();
 import jwt from "jsonwebtoken";
-
-
 
 export const extractId = (authorizationHeader) => {
     if (!authorizationHeader) {
@@ -21,14 +19,13 @@ export const extractId = (authorizationHeader) => {
         const secret_key = process.env.JWT_SECRET_KEY;
         const decodedToken = jwt.verify(token, secret_key);
         decodedToken.clientId;
-        return decodedToken.clientId;
+        return parseInt(decodedToken.clientId);
     }
 
     return null;
 };
 
-
-const sessionService = async (data: UserLogin): Promise<LoginReturn> => {
+const sessionService = async (data: ClientSession): Promise<SessionReturn> => {
     const { email } = data;
     const user = await prisma.client.findUnique({
         where: {
@@ -42,13 +39,16 @@ const sessionService = async (data: UserLogin): Promise<LoginReturn> => {
 
     if (!comparePass) throw new AppError("Invalid credentials", 401);
 
-    const token: string = sign({ clientId: user.id, email: user.email }, process.env.JWT_SECRET_KEY!, {
-        subject: user.id.toString(),
-        expiresIn: process.env.EXPIRES_IN!,
-    });
+    const token: string = sign(
+        { clientId: user.id, email: user.email },
+        process.env.JWT_SECRET_KEY!,
+        {
+            subject: user.id.toString(),
+            expiresIn: process.env.EXPIRES_IN!,
+        }
+    );
 
     return { token };
 };
 
-
-export default sessionService
+export default sessionService;

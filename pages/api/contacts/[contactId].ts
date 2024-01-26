@@ -1,44 +1,14 @@
 import { createRouter } from "next-connect";
 import { NextApiRequest, NextApiResponse } from "next";
-import { extractId } from "../src/services/session.service.js";
-import {
-    getContactById,
-    updateContact,
-    deleteContact,
-} from "../src/services/contact.service.js";
-import {ContactResponse} from "../src/interfaces/Contacts.interface"
+import { extractId } from "../src/services/session.service";
+import { ContactController } from "../src/controllers/contact.controller";
 
 const router = createRouter();
 
-router.get(async (req: NextApiRequest, res: NextApiResponse): ContactResponse => {
-    const {
-        query: { contactId },
-    } = req;
-    const token = req.headers.authorization;
-    const clientId = extractId(token);
-    const response = await getContactById(clientId, contactId);
-    res.status(200).json({ message: response });
-});
+router.get(ContactController.getContactById);
 
-router.patch(async (req: NextApiRequest, res: NextApiResponse) => {
-    const {
-        query: { contactId },
-        body,
-    } = req;
-    const token = req.headers.authorization;
-    const clientId = extractId(token);
-    const response = await updateContact(clientId, contactId, body);
-    res.status(200).json({ message: response });
-});
+router.patch(ContactController.updateContact);
 
-router.delete(async (req: NextApiRequest, res: NextApiResponse) => {
-    const {
-        query: { contactId },
-    } = req;
-    const token = req.headers.authorization;
-    const clientId = extractId(token);
-    const response = await deleteContact(clientId, contactId);
-    res.status(200).json({ message: response });
-});
+router.delete(ContactController.deleteContact);
 
 export default router.handler();
