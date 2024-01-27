@@ -6,7 +6,9 @@ export const clientSchema = z.object({
     name: z.string().max(45),
     email: z.string().max(45).email(),
     password: z.string().max(300),
-    phone: z.string(),
+    phone: z.string().refine(data => /^\d{8,15}$/.test(data), {
+        message: 'Phone must be a string containing 8 to 15 digits.'
+    }),
     created_at: z.date(),
     updated_at: z.date(),
 });

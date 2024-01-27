@@ -14,7 +14,7 @@ export default function Home() {
     }, []);
     return (
         <>
-            <h1>Homae</h1>
+            <h1>middlewares prontos</h1>
 
         </>
     );

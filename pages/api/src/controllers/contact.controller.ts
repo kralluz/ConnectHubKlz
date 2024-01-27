@@ -41,6 +41,9 @@ export class ContactController {
             clientId,
             contactId as string
         );
+        if (!contact) {
+            return res.status(404).json({ error: "Contact not found" });
+        }
         return res.status(200).json(contact);
     }
 

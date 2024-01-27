@@ -1,14 +1,14 @@
 import { createRouter } from "next-connect";
-import { NextApiRequest, NextApiResponse } from "next";
-import { extractId } from "../src/services/session.service";
 import { ContactController } from "../src/controllers/contact.controller";
+import * as middlewares from "../src/middlewares/globals.middleware";
+
 
 const router = createRouter();
 
-router.get(ContactController.getContactById);
+router.get(middlewares.verifyToken, middlewares.verifyContactId, ContactController.getContactById);
 
-router.patch(ContactController.updateContact);
+router.patch(middlewares.verifyToken, ContactController.updateContact);
 
-router.delete(ContactController.deleteContact);
+router.delete(middlewares.verifyToken, ContactController.deleteContact);
 
 export default router.handler();

@@ -3118,16 +3118,16 @@ export namespace Prisma {
   export type ClientWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     email?: string
+    phone?: string
     AND?: ClientWhereInput | ClientWhereInput[]
     OR?: ClientWhereInput[]
     NOT?: ClientWhereInput | ClientWhereInput[]
     name?: StringFilter<"Client"> | string
     password?: StringFilter<"Client"> | string
-    phone?: StringFilter<"Client"> | string
     created_at?: DateTimeFilter<"Client"> | Date | string
     updated_at?: DateTimeNullableFilter<"Client"> | Date | string | null
     contatos?: ContactListRelationFilter
-  }, "id" | "email">
+  }, "id" | "email" | "phone">
 
   export type ClientOrderByWithAggregationInput = {
     id?: SortOrder
@@ -3184,17 +3184,17 @@ export namespace Prisma {
 
   export type ContactWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    phone?: string
     AND?: ContactWhereInput | ContactWhereInput[]
     OR?: ContactWhereInput[]
     NOT?: ContactWhereInput | ContactWhereInput[]
     client_id?: IntFilter<"Contact"> | number
     name?: StringFilter<"Contact"> | string
     email?: StringNullableFilter<"Contact"> | string | null
-    phone?: StringFilter<"Contact"> | string
     created_at?: DateTimeFilter<"Contact"> | Date | string
     updated_at?: DateTimeNullableFilter<"Contact"> | Date | string | null
     client?: XOR<ClientNullableRelationFilter, ClientWhereInput> | null
-  }, "id">
+  }, "id" | "phone">
 
   export type ContactOrderByWithAggregationInput = {
     id?: SortOrder

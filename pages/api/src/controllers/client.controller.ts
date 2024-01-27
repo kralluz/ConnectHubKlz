@@ -41,6 +41,8 @@ export class ClientController {
             query: { id: patchId },
             body,
         } = req;
+        const newPhone = body.phone;
+        
 
         const response: ClientResponse = await ClientService.updateClient(
             patchId,

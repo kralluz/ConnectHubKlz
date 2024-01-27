@@ -6,7 +6,9 @@ export const contactSchema = z.object({
     client_id: z.number().int().positive(),
     name: z.string().max(45),
     email: z.string().max(45).email(),
-    phone: z.string(),
+    phone: z.string().refine(data => /^\d{8,15}$/.test(data), {
+        message: 'Phone must be a string containing 8 to 15 digits.'
+    }),
     created_at: z.string(),
     updated_at: z.string(),
 });
