@@ -21,7 +21,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/clients.js", "pages/api/contacts/[contactId].ts", "pages/api/contacts.st", "pages/_app.js", "pages/api/session.ts", "pages/api/src/middlewares/handleErrors.middleware.js", "pages/index.ts"  ],
+, "pages/api/clients.js", "pages/api/contacts/[contactId].ts", "pages/api/contacts.st", "pages/_app.jsx", "pages/api/session.ts", "pages/api/src/middlewares/handleErrors.middleware.js", "pages/index.ts", "pages/api/auth/logints"  ],
   "exclude": [
     "node_modules"
   ]

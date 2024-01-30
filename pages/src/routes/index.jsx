@@ -1,8 +1,8 @@
-import { Routes } from "react-router-dom";
 
 export const RoutesMain = () => {
     return (
-        <Routes>
-        </Routes>
+        <h1>
+            a
+        </h1>
     );
 };

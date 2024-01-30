@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { api } from "./src/services/api.jsx";
-import { HeaderComponent } from "./src/components/header";
-import Link from "next/link";
+import { api } from "../services/api";
+import { HeaderComponent } from "./header";
+import { Link } from "./Link";
 
-export default function MyApp() {
+export const HomePage = () => {
     const [apiData, setApiData] = useState([]);
 
     const fetchData = async () => {
@@ -18,20 +18,17 @@ export default function MyApp() {
     useEffect(() => {
         fetchData();
     }, []);
-
     return (
         <>
             <HeaderComponent />
             <h1>Clientes</h1>
-            <h3>Main page</h3>
+            <h3>HomePage</h3>
             <ul>
                 {apiData.map((client) => (
                     <li key={client.id}>{client.name}</li>
                 ))}
             </ul>
-            <button>
-                <Link href="/about">Blog Post</Link>
-            </button>
+            <Link to="/about">About</Link>
         </>
     );
-}
+};

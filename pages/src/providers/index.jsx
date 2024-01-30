@@ -1,17 +1,14 @@
 import React, { createContext, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 import { api } from "../services/api";
 import { useEffect } from "react";
-import "react-toastify/dist/ReactToastify.css";
 
 export const ClientContext = createContext({});
 
 export const ClientProvider = ({ children }) => {
     const [client, setClient] = useState({});
     const [contacts, setContacts] = useState({});
-    const navigate = useNavigate();
-    const token = localStorage.getItem("@TOKEN");
+    const token = typeof window !== 'undefined' ? localStorage.getItem("@CONNECT_HUB_TOKEN") : null;
+
 
     useEffect(() => {
         const loadClient = async () => {
@@ -72,8 +69,9 @@ export const ClientProvider = ({ children }) => {
                 clientLogout,
             }}
         >
-            <ToastContainer />
             {children}
         </ClientContext.Provider>
     );
 };
+
+export const useClientContext = () => useContext(ClientContext);
