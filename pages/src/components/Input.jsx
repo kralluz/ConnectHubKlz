@@ -1,14 +1,13 @@
-export const Input = ({ label, name, type, placeholder, register, error }) => {
+export const Input = ({ label, name, type, placeholder }) => {
     return (
         <div>
-            <label htmlFor="email">{label}</label>
+            <label htmlFor={name}>{label}</label>
             <input
+                id={name}
                 name={name}
                 type={type}
                 placeholder={placeholder}
-                {...register}
             />
-            {error ? <p>{error.message}</p> : null}
         </div>
     );
 };

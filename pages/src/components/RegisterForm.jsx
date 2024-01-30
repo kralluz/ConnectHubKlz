@@ -1,3 +1,6 @@
+import { Input } from "../components/Input";
+import { InputPassword } from "../components/InputPassword";
+
 export const RegisterForm = () => {
     return (
         <form
@@ -5,18 +8,36 @@ export const RegisterForm = () => {
             action="http://localhost:3000/api/clients"
             method="post"
         >
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" required />
+            <Input
+                label="Nome:"
+                name="name"
+                type="text"
+                placeholder="Digite seu nome"
+            />
+            <Input
+                label="Email:"
+                name="email"
+                type="email"
+                placeholder="Digite seu email"
+            />
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required />
-
-            <label for="phone">Telefone:</label>
-            <input type="tel" id="phone" name="phone" required />
-
+            <InputPassword
+                label="Senha: "
+                name="password"
+                placeholder="Digite sua senha"
+            />
+            <InputPassword
+                label="Confirmar Senha:"
+                name="password"
+                placeholder="Digite sua senha"
+            />
+            <Input
+                label="Telefone:"
+                name="phone"
+                type="text"
+                placeholder="Digite seu número de telefone"
+            />
+            <br />
             <button type="submit">Cadastrar</button>
         </form>
     );
