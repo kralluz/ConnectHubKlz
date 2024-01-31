@@ -32,6 +32,8 @@ export const ClientProvider = ({ children }) => {
     const clientRegister = async (formData) => {
         try {
             await api.post("/client", formData);
+            toast.success("Cadastro Feito com sucesso!");
+            navigate("/");
         } catch (error) {
             toast.error("Erro ao fazer cadastro.");
             console.log(error);

@@ -7,6 +7,5 @@ export const SessionController = async (
 ): Promise<Response> => {
     const body = req.body;
     const response = await sessionService(body);
-    if (!response) res.status(401).json("Invalid credentials");
     return res.status(200).json(response);
 };

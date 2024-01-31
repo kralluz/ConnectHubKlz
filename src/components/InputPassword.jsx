@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
-const InputPassword = ({ name, label, placeholder, handleChange }) => {
+const InputPassword = ({ name, label, placeholder }) => {
     const [IsHidden, setIsHidden] = useState(true);
 
     return (
@@ -13,7 +13,6 @@ const InputPassword = ({ name, label, placeholder, handleChange }) => {
                     name={name}
                     type="password"
                     placeholder={placeholder}
-                    onChange={handleChange}
                 />
                 <button type="button" onClick={() => setIsHidden(!IsHidden)}>
                     {IsHidden ? (
