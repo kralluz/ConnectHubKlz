@@ -10,7 +10,7 @@ const RegisterForm = () => {
     return (
         <form
             id="registerForm"
-            action="http://localhost:3000/api/clients"
+            action="/api/clients"
             method="post"
         >
             <Input
