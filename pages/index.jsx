@@ -15,6 +15,7 @@ export default function MyApp() {
 
     return (
         <>
+        {user && <h1 className="user">{user.name}</h1>}
             <HomePage />
         </>
     );

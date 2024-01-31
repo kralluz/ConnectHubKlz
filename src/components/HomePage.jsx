@@ -1,32 +1,41 @@
-import { useState, useEffect } from "react";
-import { api } from "../services/api";
-import Link from "./Link";
+import { useEffect } from "react";
+import { useClientState } from "../providers/client.provider";
+import { useContactsState } from "../providers/contacts.provider";
 
 const HomePage = () => {
-    const [apiData, setApiData] = useState([]);
+    const { clientLogout } = useClientState();
+    const { contacts,  readAllContacts } = useContactsState();
+    const token =
+        typeof window !== "undefined"
+            ? localStorage.getItem("@CONNECT_HUB_TOKEN")
+            : null;
 
-    const fetchData = async () => {
-        try {
-            const response = await api.get("/clients");
-            setApiData(response.data);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
+    const onSubmit = async () => {
+        clientLogout();
     };
 
     useEffect(() => {
-        fetchData();
-    }, []);
+        if (token) {
+            readAllContacts();
+        }
+    }, [token]);
     return (
         <>
-            <h1>Clientes</h1>
             <h3>HomePage</h3>
-            <ul>
-                {apiData.map((client) => (
-                    <li key={client.id}>{client.name}</li>
-                ))}
-            </ul>
-            <Link to="/about">About</Link>
+            <h1>Contatos</h1>
+            {contacts
+                ? contacts.map((contact) => {
+                    return (
+                        <div key={contact.id}>
+                            <p>{contact.name}</p>
+                            <p>{contact.email}</p>
+                        </div>
+                    );
+                })
+                : "Carregando..."}
+            <form onSubmit={onSubmit}>
+                <button type="submit">sair da sessão</button>
+            </form>
         </>
     );
 };

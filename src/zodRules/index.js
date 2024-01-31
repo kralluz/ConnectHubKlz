@@ -31,12 +31,5 @@ export const zodRules = z.object({
         .string()
         .nonempty("Número para contato é obrigatório")
         .regex(/^\d+$/, "Insira apenas números no campo de contato")
-        .min(10, "O número de contato precisa ter pelo menos 10 dígitos"),
-    bio: z
-        .string()
-        .nonempty("A bio é obrigatório"),
-    course_module: z.string(),
-    }).refine(({password, confirmPassword}) => password === confirmPassword, {
-        message: "As senhas não coincidem.",
-        path: ["confirmPassword"],
+        .min(8, "O número de contato precisa ter pelo menos 8 dígitos")
     });
