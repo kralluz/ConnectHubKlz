@@ -2,6 +2,11 @@ import Input from "../components/Input";
 import InputPassword from "../components/InputPassword";
 
 const RegisterForm = () => {
+/*     <InputPassword
+    label="Confirmar Senha:"
+    name="password"
+    placeholder="Digite sua senha"
+/> */
     return (
         <form
             id="registerForm"
@@ -26,11 +31,7 @@ const RegisterForm = () => {
                 name="password"
                 placeholder="Digite sua senha"
             />
-            <InputPassword
-                label="Confirmar Senha:"
-                name="password"
-                placeholder="Digite sua senha"
-            />
+
             <Input
                 label="Telefone:"
                 name="phone"
