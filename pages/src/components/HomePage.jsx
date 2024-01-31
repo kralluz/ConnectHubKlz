@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { api } from "../services/api";
-import { HeaderComponent } from "./header";
 import { Link } from "./Link";
 
 export const HomePage = () => {
@@ -20,7 +19,6 @@ export const HomePage = () => {
     }, []);
     return (
         <>
-            <HeaderComponent />
             <h1>Clientes</h1>
             <h3>HomePage</h3>
             <ul>
