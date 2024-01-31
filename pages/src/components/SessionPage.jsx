@@ -1,4 +1,5 @@
-export const SessionPage = () => {
+
+const SessionPage = () => {
     return (
         <>
             <main>
@@ -12,3 +13,5 @@ export const SessionPage = () => {
         </>
     );
 };
+
+export default SessionPage;

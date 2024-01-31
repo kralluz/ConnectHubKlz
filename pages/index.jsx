@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import useClient from "../lib/clientHook";
-import { HomePage } from "./src/components/HomePage";
+import HomePage from "./src/components/HomePage";
 
 export default function MyApp() {
     const { user, loading } = useClient();

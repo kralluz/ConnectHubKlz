@@ -1,7 +1,7 @@
-import { Input } from "../components/Input";
-import { InputPassword } from "../components/InputPassword";
+import Input from "../components/Input";
+import InputPassword from "../components/InputPassword";
 
-export const RegisterForm = () => {
+const RegisterForm = () => {
     return (
         <form
             id="registerForm"
@@ -42,3 +42,5 @@ export const RegisterForm = () => {
         </form>
     );
 };
+
+export default RegisterForm;

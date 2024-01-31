@@ -1,5 +1,5 @@
 import { Link } from "./Link";
-export const RegisterPage = () => {
+const RegisterPage = () => {
     return (
         <main>
             <header>
@@ -16,3 +16,5 @@ export const RegisterPage = () => {
         </main>
     );
 };
+
+export default RegisterPage;

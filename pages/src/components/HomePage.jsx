@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { api } from "../services/api";
 import { Link } from "./Link";
 
-export const HomePage = () => {
+const HomePage = () => {
     const [apiData, setApiData] = useState([]);
 
     const fetchData = async () => {
@@ -30,3 +30,5 @@ export const HomePage = () => {
         </>
     );
 };
+
+export default HomePage;
